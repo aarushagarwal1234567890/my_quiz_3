@@ -5,7 +5,6 @@ class Question {
     this.input1 = createInput("Enter Your Name Here....");
     this.input2 = createInput("Enter Correct Option No..");
     this.button = createButton('Submit');
-    this.button2 = createButton('Reset');
     this.question = createElement('h3');
     this.option1 = createElement('h4');
     this.option2 = createElement('h4');
@@ -17,7 +16,6 @@ class Question {
     this.title.hide();
     this.input1.hide();
     this.button.hide();
-    this.button2.hide();
     this.input2.hide();
   }
 
@@ -39,7 +37,6 @@ class Question {
     this.input1.position(150, 230);
     this.input2.position(350, 230);
     this.button.position(290, 300);
-    this.button2.position(360, 300);
 
     this.button.mousePressed(()=>{
       this.title.hide();
@@ -50,15 +47,9 @@ class Question {
       contestant.answer = this.input2.value();
       contestantCount+=1;
       contestant.index = contestantCount;
-      contestant.update();
+      //contestant.update();
       contestant.updateCount(contestantCount);
+      
     });
-
-    this.button2.mousePressed(()=>{
-      contestant.updateCount(0)
-      quiz.update(0)
-      var ref = database.ref("contestants")
-      ref.remove()
-    })
   }
 }
